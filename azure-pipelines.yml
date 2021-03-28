@@ -13,7 +13,7 @@ pool:
   vmImage: ubuntu-latest
 
 jobs:
-  - ${{ each service in parameters.services }}
+  - ${{ each service in parameters.services }}:
     - job: Build
       steps:
       - script: echo ${{ service }}
