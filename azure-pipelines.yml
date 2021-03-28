@@ -1,0 +1,19 @@
+trigger:
+- main
+
+parameters:
+  - name: services
+    type: object
+    default:
+      - api
+      - web
+
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+  - ${{ each service in parameters.services }}
+    - job: Build
+      steps:
+      - script: echo ${{ service }}
