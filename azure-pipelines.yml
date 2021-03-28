@@ -21,4 +21,4 @@ jobs:
         WEB:
           service: 'web'
     steps:
-    - script: echo ${{ service }}
+    - script: echo $(service)
