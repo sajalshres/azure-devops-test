@@ -1,16 +1,10 @@
 trigger:
 - main
 
-parameters:
-  - name: services
-    type: object
-    default:
-      - api
-      - web
-
 
 pool:
-  vmImage: ubuntu-latest
+  name: selfHostedagents
+  demands: agent.os -equals Linux
 
 jobs:
   - job: Build
