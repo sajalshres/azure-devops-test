@@ -9,10 +9,12 @@ pool:
 jobs:
   - job: Build
     strategy:
+      maxParallel: 2
       matrix:
         API:
           service: 'api'
         WEB:
           service: 'web'
+    container: ubuntu:18.04
     steps:
     - script: echo $(service)
