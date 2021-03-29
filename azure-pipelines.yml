@@ -3,7 +3,7 @@ trigger:
 
 
 pool:
-  name: selfHostedagents
+  name: Default
   demands: agent.os -equals Linux
 
 jobs:
