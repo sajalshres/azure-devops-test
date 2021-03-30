@@ -5,7 +5,7 @@ services:
     build:
       context: services/api
       dockerfile: Dockerfile
-    image: sajalshres/azure-devops-test/api:develop
+    image: azuredevtest/api:develop
     volumes:
       - ./services/api:/home/app/src
     ports:
@@ -21,7 +21,7 @@ services:
     build:
       context: services/web
       dockerfile: Dockerfile
-    image: sajalshres/azure-devops-test/web:develop
+    image: azuredevtest/web:develop
     volumes:
       - ./services/web:/home/app/src
     ports:
