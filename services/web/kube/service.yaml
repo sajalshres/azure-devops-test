@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-service
+  labels:
+    app: azure-devops-test
+spec:
+  selector:
+    app: web
+  ports:
+  - name: web
+    protocol: TCP
+    port: 3000

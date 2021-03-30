@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: services/api
+      dockerfile: Dockerfile
+    image: sajalshres/azure-devops-test/api:develop
+    volumes:
+      - ./services/api:/home/app/src
+    ports:
+      - 8000:8000
+    environment:
+        NODE_ENV: development
+        PORT: 8000
+        LOG_DIR: logs
+    depends_on:
+      - mongo
+    container_name: azure_devops_test_api
+  web:
+    build:
+      context: services/web
+      dockerfile: Dockerfile
+    image: sajalshres/azure-devops-test/web:develop
+    volumes:
+      - ./services/web:/home/app/src
+    ports:
+      - 3000:3000
+    environment:
+        NODE_ENV: development
+        PORT: 3000
+        LOG_DIR: logs
+    depends_on:
+      - api
+    container_name: azure_devops_test_web
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    container_name: azure_devops_test_mongo

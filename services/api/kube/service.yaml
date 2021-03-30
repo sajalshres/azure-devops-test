@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: api-service
+  labels:
+    app: azure-devops-test
+spec:
+  selector:
+    app: api
+  ports:
+  - name: api
+    protocol: TCP
+    port: 8000
