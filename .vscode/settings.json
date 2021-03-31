@@ -6,4 +6,7 @@
         "editor.formatOnSave": true
     },
     "prettier.singleQuote": true,
+    "files.associations": {
+        "**/.azure/*.yaml": "azure-pipelines"
+    }
 }
